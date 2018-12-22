@@ -1,5 +1,5 @@
 @extends('layouts.complainant')
 
 @section('content')
-    hola
+    <button class="btn btn-primary">Agregar denuncia</button>
 @endsection
