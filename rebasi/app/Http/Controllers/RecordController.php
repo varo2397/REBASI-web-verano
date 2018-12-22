@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ReportController extends Controller
+class RecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ReportController extends Controller
     public function index(Request $request)
     {
         //
-        return view('report.index');
+        return view('record.index');
     }
 
     /**
