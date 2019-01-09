@@ -13,7 +13,7 @@ class CreateComplaintTable extends Migration
      */
     public function up()
     {
-        Schema::create('complaint', function (Blueprint $table) {
+        Schema::create('report', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->text('description');

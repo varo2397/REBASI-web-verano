@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/reports');
 });
 
 Auth::routes();
@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/reports', 'ReportController');
 Route::resource('/records', 'RecordController');
 Route::resource('/user', 'UserController');
+Route::post('/store','UserController@store');
+//Route::get('/store','UserController@store');

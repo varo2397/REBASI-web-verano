@@ -39,12 +39,14 @@
                         <p>Denuncias</p>
                     </a>
                 </li>
+                @if(Session::has('user'))
                 <li class="nav-item {{ request()->is('user') ? 'active' : '' }}">
                     <a class="nav-link" href="user">
                         <i class="material-icons">person</i>
                         <p>Información personal</p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item {{ request()->is('records') ? 'active' : '' }} ">
                     <a class="nav-link" href="records">
                         <i class="material-icons">content_paste</i>

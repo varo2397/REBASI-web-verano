@@ -16,8 +16,8 @@ class CreatePhotoTable extends Migration
         Schema::create('photo', function (Blueprint $table) {
             $table->string('route', 200);
             $table->timestamps();
-            $table->unsignedInteger('complaint');
-            $table->foreign('complaint')->references('id')->on('complaint');
+            $table->unsignedInteger('report');
+            $table->foreign('report')->references('id')->on('report');
 
         });
     }

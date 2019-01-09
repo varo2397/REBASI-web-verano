@@ -8,7 +8,7 @@
                 {{--<div class="card-header">{{ __('Register') }}</div>--}}
 
                 {{--<div class="card-body">--}}
-                    {{--<form method="POST" action="{{ route('register') }}">--}}
+                    {{--<form>--}}
                         {{--@csrf--}}
 
                         {{--<div class="form-group row">--}}
@@ -84,7 +84,8 @@
                 <h2 class="card-title text-center">Inicio de sesion</h2>
             </div>
             <div class="card-body">
-                <form>
+                <form action="{{url('/store')}}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
@@ -130,8 +131,44 @@
 
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-horizontal">
+                                          <label class="control-label" for="radios">Tipo de usuario</label>
+                                          <div class="col-md-6"> 
+                                            <label class="radio-inline" for="radios-0">
+                                              <input type="radio" name="radios" id="radios-0" value="0" checked="checked">
+                                              Usuario común
+                                            </label> 
+                                            <label class="radio-inline" for="radios-1">
+                                              <input type="radio" name="radios" id="radios-1" value="1">
+                                              Municipalidad
+                                            </label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" id="place" style="display: none;">
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                          <label class="col-md-4 control-label" for="selectbasic">Provincia</label>
+                                            <select id="province" name="province" class="form-control">
+                                              <option value="1">San José</option>
+                                            </select>
+                                        </div>
 
-                            <button  class="btn btn-primary">Registrarse</button>
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                          <label class="col-md-4 control-label" for="canton">Cantón</label>
+                                            <select id="canton" name="canton" class="form-control">
+                                              <option value="1">San José</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
                             <a href="login" class="btn btn-primary">Iniciar sesion</a>
 
                         </div>

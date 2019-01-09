@@ -71,6 +71,7 @@
 <script src=" {{ URL::asset('js/material-dashboard.js?v=2.1.1') }}" type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src=" {{ URL::asset('demo/demo.js') }}"></script>
+<script src=" {{ URL::asset('js/custom.js') }}"></script>
 <script>
     $(document).ready(function() {
         $().ready(function() {
