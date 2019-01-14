@@ -33,22 +33,22 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="nav-item {{ request()->is('reports') ? 'active' : '' }} ">
-                    <a class="nav-link" href="reports">
+                <li class="nav-item {{ Request::segment(1) === 'reports' ? 'active' : null }} ">
+                    <a class="nav-link" href="{{ URL::to('reports') }}">
                         <i class="material-icons">dashboard</i>
                         <p>Denuncias</p>
                     </a>
                 </li>
                 @if(Session::has('user'))
-                <li class="nav-item {{ request()->is('user') ? 'active' : '' }}">
+                <li class="nav-item {{ Request::segment(1) === 'user' ? 'active' : null }}">
                     <a class="nav-link" href="user">
                         <i class="material-icons">person</i>
                         <p>Información personal</p>
                     </a>
                 </li>
                 @endif
-                <li class="nav-item {{ request()->is('records') ? 'active' : '' }} ">
-                    <a class="nav-link" href="records">
+                <li class="nav-item {{ Request::segment(1) === 'records' ? 'active' : null }} ">
+                    <a class="nav-link" href="{{ URL::to('records') }}">
                         <i class="material-icons">content_paste</i>
                         <p>Historial de denuncias</p>
                     </a>

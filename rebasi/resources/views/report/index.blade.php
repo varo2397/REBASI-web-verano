@@ -1,5 +1,5 @@
 @extends('layouts.complainant')
 
 @section('content')
-    <button class="btn btn-primary">Agregar denuncia</button>
+    <a class="btn btn-primary" href="{{ URL::to('reports/create') }}">Agregar denuncia</a>
 @endsection
