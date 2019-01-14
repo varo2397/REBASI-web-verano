@@ -25,6 +25,7 @@ class ReportController extends Controller
     public function create()
     {
         //
+        return view('report.create');
     }
 
     /**
@@ -36,6 +37,7 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
