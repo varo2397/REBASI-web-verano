@@ -98,7 +98,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Nombre</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" class="form-control" name="name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -153,7 +153,6 @@
                                         <div class="form-group">
                                           <label class="col-md-4 control-label" for="selectbasic">Provincia</label>
                                             <select id="province" name="province" class="form-control">
-                                              <option value="1">San José</option>
                                             </select>
                                         </div>
 
@@ -161,7 +160,6 @@
                                         <div class="form-group">
                                           <label class="col-md-4 control-label" for="canton">Cantón</label>
                                             <select id="canton" name="canton" class="form-control">
-                                              <option value="1">San José</option>
                                             </select>
                                         </div>
                                     </div>
