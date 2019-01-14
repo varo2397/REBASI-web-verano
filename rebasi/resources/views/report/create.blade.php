@@ -17,22 +17,26 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <lable>Lugar</lable>
-                                        <input class="form-control" name="place">
+                                        <input class="form-control" required name="place">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <lable>Descripción</lable>
-                                        <textarea class="form-control" name="description"></textarea>
+                                        <textarea class="form-control" required name="description"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="">
                                         <lable>Lugar</lable>
-                                        <input accept="image/*" type="file" name="photo" required multiple class="form-control">
+                                        <input accept="image/*" type="file" name="photos" required multiple class="form-control">
                                     </div>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary">Crear denuncia</button>
 
                         </div>
 

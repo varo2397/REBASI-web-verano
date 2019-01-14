@@ -2,4 +2,22 @@
 
 @section('content')
     <a class="btn btn-primary" href="{{ URL::to('reports/create') }}">Agregar denuncia</a>
+
+    <div class="col-md-12">
+        @foreach($reports as $report)
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>
+                            {{ $report->description }}
+                        </h3>
+                        <h4>
+                            {{ $report->place }}
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection

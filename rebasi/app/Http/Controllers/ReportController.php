@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Report;
+use App\Photo;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -11,10 +14,13 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        return view('report.index');
+
+        $reports = Report::all();
+
+        return view('report.index', ['reports' => $reports]);
     }
 
     /**
@@ -37,6 +43,25 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
+        dd(Auth::id());
+        $report = new Report();
+        $report->description = $request->input('description');
+        $report->place = $request->input('place');
+        $report->user_id = Auth::id();
+        $report->save();
+
+        foreach ($request->file('photos') as $file){
+            $extension = $file->getClientOriginalExtension();
+            $name = time().'.'.$extension;
+            $file->move('photos/', $name);
+
+            $photo = new Photo();
+            $photo->route = 'photos/'.$name;
+            $photo->report = $report->id;
+            $photo->save();
+        }
+
+        return $this->index();
 
     }
 
@@ -49,6 +74,9 @@ class ReportController extends Controller
     public function show($id)
     {
         //
+
+
+
     }
 
     /**

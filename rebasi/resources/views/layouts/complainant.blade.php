@@ -70,18 +70,19 @@
                 <div class="collapse navbar-collapse justify-content-end">
 
                     <ul class="navbar-nav">
-                        @if(Session::has('user'))
-                        <li>
-                           <a href="/userLogout" class="btn btn-primary">Cerrar Sesión</a>
-                        </li>
-                        @else
-                        <li>
-                           <a href="login" class="btn btn-primary">Iniciar sesión</a>
-                        </li>
-                        <li>
-                            <a href="register" class="btn btn-primary">Registrarse</a>
-                        </li>
-                        @endif
+                        @guest
+                            <li>
+                                <a href="login" class="btn btn-primary">Iniciar sesión</a>
+                            </li>
+                            <li>
+                                <a href="register" class="btn btn-primary">Registrarse</a>
+                            </li>
+                        @endguest
+                        @auth
+                                <li>
+                                    <a href="register" class="btn btn-primary">Cerrar sesion</a>
+                                </li>
+                        @endauth
                     </ul>
                 </div>
             </div>
