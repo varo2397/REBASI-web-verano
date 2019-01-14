@@ -19,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        //error_log(Session::get('user'));
         return view('user.index');
     }
 
@@ -40,9 +41,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+        error_log($request->input("name"));
+        error_log($request->input("email"));
+        error_log($request->input("password"));
+
+        DB::table('users')->insert([
+            'name' => $request->input("name"),
+            'email' => $request->input("email"),
+            'password' => bcrypt($request->input("password")),
+            'role' => 0
+        ]); 
+
         return redirect('/reports');
-        //
+        
     }
+        //
 
     /**
      * Display the specified resource.
@@ -91,8 +105,8 @@ class UserController extends Controller
 
     public function login(Request $request){
         $data = $request->all();
-        /*$pass = $data['password'];
-        $email = $data['email'];*/
+        /*$pass = $data['password'];*/
+        $email = $data['email'];
         if(!$data['email'] || !$data['password']){
             Session::put('message','No ingresó todos los datos');
             return redirect()->back();
@@ -103,11 +117,19 @@ class UserController extends Controller
             );
             if(Auth::attempt($userData)){
                 Session::flush();
+                Session::put('user',Auth::user());
                 return redirect('/reports');
             }else{
                 Session::put('message','Contraseña incorrecta o usuario no existe');
                 return redirect()->back();
             }
         }
+    }
+
+    public function logout(){
+        $user = Session::get('user');
+        error_log($user->email);
+        Session::forget('user');
+        return redirect()->back();
     }
 }

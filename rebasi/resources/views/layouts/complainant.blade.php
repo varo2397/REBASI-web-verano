@@ -39,14 +39,12 @@
                         <p>Denuncias</p>
                     </a>
                 </li>
-                @if(Session::has('user'))
                 <li class="nav-item {{ Request::segment(1) === 'user' ? 'active' : null }}">
                     <a class="nav-link" href="user">
                         <i class="material-icons">person</i>
                         <p>Información personal</p>
                     </a>
                 </li>
-                @endif
                 <li class="nav-item {{ Request::segment(1) === 'records' ? 'active' : null }} ">
                     <a class="nav-link" href="{{ URL::to('records') }}">
                         <i class="material-icons">content_paste</i>
@@ -72,12 +70,18 @@
                 <div class="collapse navbar-collapse justify-content-end">
 
                     <ul class="navbar-nav">
+                        @if(Session::has('user'))
+                        <li>
+                           <a href="/userLogout" class="btn btn-primary">Cerrar Sesión</a>
+                        </li>
+                        @else
                         <li>
                            <a href="login" class="btn btn-primary">Iniciar sesión</a>
                         </li>
                         <li>
                             <a href="register" class="btn btn-primary">Registrarse</a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>

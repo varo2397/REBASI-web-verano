@@ -21,3 +21,4 @@ Route::resource('/reports', 'ReportController');
 Route::resource('/records', 'RecordController');
 Route::resource('/user', 'UserController');
 Route::post('/userLogin','UserController@login');
+Route::get('/userLogout','UserController@logout');
