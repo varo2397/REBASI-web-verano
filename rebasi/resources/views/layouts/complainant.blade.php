@@ -40,12 +40,12 @@
                     </a>
                 </li>
                 @if(Session::has('user'))
-                <li class="nav-item {{ Request::segment(1) === 'user' ? 'active' : null }}">
-                    <a class="nav-link" href="user">
-                        <i class="material-icons">person</i>
-                        <p>Información personal</p>
-                    </a>
-                </li>
+                    <li class="nav-item {{ Request::segment(1) === 'user' ? 'active' : null }}">
+                        <a class="nav-link" href="user">
+                            <i class="material-icons">person</i>
+                            <p>Información personal</p>
+                        </a>
+                    </li>
                 @endif
                 <li class="nav-item {{ Request::segment(1) === 'records' ? 'active' : null }} ">
                     <a class="nav-link" href="{{ URL::to('records') }}">
@@ -72,12 +72,19 @@
                 <div class="collapse navbar-collapse justify-content-end">
 
                     <ul class="navbar-nav">
-                        <li>
-                           <a href="login" class="btn btn-primary">Iniciar sesión</a>
-                        </li>
-                        <li>
-                            <a href="register" class="btn btn-primary">Registrarse</a>
-                        </li>
+                        @guest
+                            <li>
+                                <a href="login" class="btn btn-primary">Iniciar sesión</a>
+                            </li>
+                            <li>
+                                <a href="register" class="btn btn-primary">Registrarse</a>
+                            </li>
+                        @endguest
+                        @auth
+                                <li>
+                                    <a href="register" class="btn btn-primary">Cerrar sesion</a>
+                                </li>
+                        @endauth
                     </ul>
                 </div>
             </div>

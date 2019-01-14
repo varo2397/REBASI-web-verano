@@ -17,6 +17,7 @@ class ReportController extends Controller
     public function index()
     {
         //
+
         $reports = Report::all();
 
         return view('report.index', ['reports' => $reports]);
@@ -42,6 +43,7 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
+        dd(Auth::id());
         $report = new Report();
         $report->description = $request->input('description');
         $report->place = $request->input('place');
