@@ -43,14 +43,18 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
-        dd(Auth::id());
+
         $report = new Report();
         $report->description = $request->input('description');
         $report->place = $request->input('place');
         $report->user_id = Auth::id();
         $report->save();
 
-        foreach ($request->file('photos') as $file){
+        dd($request);
+
+        foreach ($request->file('photos') as $file)
+        {
+            dd('hola');
             $extension = $file->getClientOriginalExtension();
             $name = time().'.'.$extension;
             $file->move('photos/', $name);
@@ -60,6 +64,9 @@ class ReportController extends Controller
             $photo->report = $report->id;
             $photo->save();
         }
+
+
+
 
         return $this->index();
 
