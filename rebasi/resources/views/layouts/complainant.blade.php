@@ -79,6 +79,9 @@
                             </li>
                         @else
                             <li>
+                                <p class="btn btn-primary">Bienvenido {{Session::get('user')->name}}</p>
+                            </li>
+                            <li>
                                 <a href="/userLogout" class="btn btn-primary">Cerrar sesion</a>
                             </li>
                         @endif
