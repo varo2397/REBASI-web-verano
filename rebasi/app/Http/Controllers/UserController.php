@@ -7,8 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Session;
-use Auth;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
@@ -86,6 +85,9 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+
+        return view('user.show', [ 'user' => $user]);
     }
 
     /**

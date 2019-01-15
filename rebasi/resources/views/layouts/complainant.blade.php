@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item {{ Request::segment(1) === 'user' ? 'active' : null }}">
-                    <a class="nav-link" href="user">
+                    <a class="nav-link" href="user/{{ Auth::user()->id }}">
                         <i class="material-icons">person</i>
                         <p>Información personal</p>
                     </a>
