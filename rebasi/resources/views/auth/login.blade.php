@@ -80,7 +80,7 @@
                     <h2 class="card-title text-center">Inicio de sesion</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{url('/login')}}">
+                    <form method="POST" action="{{route('login')}}">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
