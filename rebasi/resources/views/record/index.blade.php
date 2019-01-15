@@ -1,7 +1,7 @@
 @extends('layouts.complainant')
 
 @section('content')
-<div class="content">
+  <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -11,28 +11,30 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table">
+                <table class="table table-hover">
                   <thead class=" text-primary">
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Fecha</th>
-                    <th>Estado</th>
+                  <th>ID</th>
+                  <th>Descripción</th>
+                  <th>Lugar</th>
+                  <th>Fecha</th>
                   </thead>
                   <tbody>
+                  @foreach($userReports as $report)
                     <tr>
                       <td>
-                        1
+                        {{ $report->id }}
                       </td>
                       <td>
-                        Basura en el río
+                        {{ $report->description }}
                       </td>
                       <td>
-                        21-12-2018
+                        {{ $report->place }}
                       </td>
-                      <td class="text-primary">
-                        Iniciada
+                      <td>
+                        {{ $report->created_at }}
                       </td>
                     </tr>
+                  @endforeach
                   </tbody>
                 </table>
               </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Report;
+use Illuminate\Support\Facades\Auth;
 
 class RecordController extends Controller
 {
@@ -14,7 +16,11 @@ class RecordController extends Controller
     public function index(Request $request)
     {
         //
-        return view('record.index');
+        $userId = Auth::id();
+        $userReports = Report::all()->where('user_id', $userId);
+
+
+        return view('record.index', ['userReports' => $userReports]);
     }
 
     /**
