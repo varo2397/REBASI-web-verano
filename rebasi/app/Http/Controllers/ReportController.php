@@ -50,20 +50,18 @@ class ReportController extends Controller
         $report->user_id = Auth::id();
         $report->save();
 
-        dd($request);
-
-        foreach ($request->file('photos') as $file)
-        {
-            dd('hola');
-            $extension = $file->getClientOriginalExtension();
-            $name = time().'.'.$extension;
-            $file->move('photos/', $name);
-
-            $photo = new Photo();
-            $photo->route = 'photos/'.$name;
-            $photo->report = $report->id;
-            $photo->save();
-        }
+// se necesiat arreglar esto
+//        foreach ($request->file('photos') as $file)
+//        {
+//            $extension = $file->getClientOriginalExtension();
+//            $name = time().'.'.$extension;
+//            $file->move('photos/', $name);
+//
+//            $photo = new Photo();
+//            $photo->route = 'photos/'.$name;
+//            $photo->report = $report->id;
+//            $photo->save();
+//        }
 
 
 
