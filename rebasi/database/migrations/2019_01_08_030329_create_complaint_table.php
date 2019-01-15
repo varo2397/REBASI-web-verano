@@ -19,8 +19,9 @@ class CreateComplaintTable extends Migration
             $table->text('description');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('place');
-            $table->foreign('place')->references('districtID')->on('district');
+            $table->text('place');
+//            $table->unsignedInteger('place');
+//            $table->foreign('place')->references('districtID')->on('district');
         });
     }
 

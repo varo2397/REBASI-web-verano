@@ -112,7 +112,17 @@
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
-                @yield('content')
+                @auth
+                    @yield('content')
+                @endauth
+                @guest
+                    <div class="text-center">
+                        <h2>
+                            Necesitas inicar sesión para poder utilizar el sistema
+                        </h2>
+
+                    </div>
+                @endguest
             </div>
         </div>
 
