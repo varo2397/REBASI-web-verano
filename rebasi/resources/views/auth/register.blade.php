@@ -84,7 +84,7 @@
                 <h2 class="card-title text-center">Inicio de sesion</h2>
             </div>
             <div class="card-body">
-                <form action="{{url('/store')}}" method="POST">
+                <form action="{{url('/user')}}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -92,19 +92,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Correo electronico</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" class="form-control" id="email" name="email">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Nombre</label>
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" name="name" id="name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Apellidos</label>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" class="form-control" id="lastName" name="lastName">
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
 
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Contraseña</label>
-                                        <input type="password" class="form-control" >
+                                        <input type="password" class="form-control" id="password" name="password">
                                     </div>
 
 
@@ -125,9 +125,8 @@
 
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Confirmar contraseña</label>
-                                        <input type="password" class="form-control" >
+                                        <input type="password" class="form-control" id="confirm" name="confirm">
                                     </div>
-
 
                                 </div>
                             </div>
@@ -168,7 +167,11 @@
 
                             <button type="submit" class="btn btn-primary">Registrarse</button>
                             <a href="login" class="btn btn-primary">Iniciar sesion</a>
-
+                            @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                <p class="alert alert-danger">{{ $error }}</p>
+                                @endforeach
+                            @endif
                         </div>
 
 

@@ -42,16 +42,35 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        error_log($request->input("name"));
-        error_log($request->input("email"));
-        error_log($request->input("password"));
 
-        DB::table('users')->insert([
-            'name' => $request->input("name"),
-            'email' => $request->input("email"),
-            'password' => bcrypt($request->input("password")),
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|',
+            'confirm' => 'required|string|',
+        ]);
+
+        if($data['radios'] == 0){
+            DB::table('users')->insert([
+            'name' => $data['name']." ".$data['lastName'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
             'role' => 0
-        ]); 
+            ]);
+        }else{
+            DB::table('users')->insert([
+            'name' => $data['name']." ".$data['lastName'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'role' => 1
+            ]);
+            $newUser = DB::table('users')->where('email', $data['email'])->first();
+            DB::table('hall_per_canton')->insert([
+                'user_id' => $newUser->id,
+                'canton' => $data['canton']
+            ]);
+        }
 
         return redirect('/reports');
         
