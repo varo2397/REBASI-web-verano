@@ -70,21 +70,41 @@
                 <div class="collapse navbar-collapse justify-content-end">
 
                     <ul class="navbar-nav">
-                        @if(!Session::has('user'))
+                        {{--@if(!Session::has('user'))--}}
+                        {{--<li>--}}
+                        {{--<a href="login" class="btn btn-primary">Iniciar sesión</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                        {{--<a href="register" class="btn btn-primary">Registrarse</a>--}}
+                        {{--</li>--}}
+                        {{--@else--}}
+                        {{--<li>--}}
+                        {{--<p class="btn btn-primary">Bienvenido {{Session::get('user')->name}}</p>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                        {{--<a href="/userLogout" class="btn btn-primary">Cerrar sesion</a>--}}
+                        {{--</li>--}}
+                        {{--@endif--}}
+                        @guest
                             <li>
                                 <a href="login" class="btn btn-primary">Iniciar sesión</a>
                             </li>
                             <li>
                                 <a href="register" class="btn btn-primary">Registrarse</a>
                             </li>
-                        @else
+                        @endguest
+                        @auth
                             <li>
-                                <p class="btn btn-primary">Bienvenido {{Session::get('user')->name}}</p>
+                                <a class="btn btn-primary" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar sesión') }} </a>
                             </li>
-                            <li>
-                                <a href="/userLogout" class="btn btn-primary">Cerrar sesion</a>
-                            </li>
-                        @endif
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endauth
                     </ul>
                 </div>
             </div>

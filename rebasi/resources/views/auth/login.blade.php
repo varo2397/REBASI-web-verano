@@ -80,7 +80,7 @@
                     <h2 class="card-title text-center">Inicio de sesion</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{url('/userLogin')}}">
+                    <form method="POST" action="{{url('/login')}}">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -101,9 +101,7 @@
                                     <button class="btn btn-primary">Iniciar sesion</button>
                                     <a href="register" class="btn btn-primary">Registrarse</a>
                                 </div>
-                                @if(Session::has('message'))
-                                <p class="alert alert-danger">{{Session::get('message')}}</p>
-                                @endif
+
                             </div>
 
 
