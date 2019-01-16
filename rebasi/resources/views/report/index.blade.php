@@ -9,13 +9,19 @@
                 <div class="col-md-4">
                     <a href="reports/{{$report->id}}/edit">
                         <div class="card">
+                            <img src="{{asset($report->route)}}" alt="">
                             <div class="card-body">
                                 <h3>
                                     {{ $report->description }}
                                 </h3>
                                 <h4>
-                                    {{ $report->place }}
+                                    {{ $report->name }}
                                 </h4>
+                                @if($report->tracing)
+                                <h4>
+                                    Seguimiento: {{ $report->tracing }}
+                                </h4>
+                                @endif
                                 {{--<a href="{{  }}"></a>--}}
                             </div>
                         </div>

@@ -3,7 +3,7 @@
 @section('content')
 
     <a class="btn btn-primary" href="{{ URL::previous() }}">Atras</a>
-    <form action="{{ URL::to('reports') }}" method="post">
+    <form action="{{ URL::to('reports') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -36,7 +36,7 @@
                                 <div class="col-md-4">
                                     <div class="">
                                         <lable>Foto</lable>
-                                        <input accept="image/*" type="file" name="photos" required multiple class="form-control">
+                                        <input accept="image/*" type="file" name="photos" id="photos" required class="form-control">
                                     </div>
                                 </div>
                             </div>
