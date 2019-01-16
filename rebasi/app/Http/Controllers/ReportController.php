@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Report;
 use App\Photo;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
@@ -17,8 +18,13 @@ class ReportController extends Controller
     public function index()
     {
         //
-
-        $reports = Report::all();
+        if(Auth::user()->role == 1){
+            error_log(Auth::user()->role);
+            $reports = Report::reportsPerCanton(User::hallOf(Auth::id()));
+            //$reports = Report::all();
+        }else{
+            $reports = Report::all();
+        }
 
         return view('report.index', ['reports' => $reports]);
     }
