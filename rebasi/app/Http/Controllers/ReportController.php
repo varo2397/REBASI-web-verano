@@ -8,6 +8,8 @@ use App\Photo;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Illuminate\Support\Facades\Input;
+
 
 class ReportController extends Controller
 {
@@ -24,7 +26,7 @@ class ReportController extends Controller
             $reports = Report::reportsPerCanton(User::hallOf(Auth::id()));
             //$reports = Report::all();
         }else{
-            $reports = Report::all();
+            $reports = Report::getAll();
         }
 
         return view('report.index', ['reports' => $reports]);
@@ -56,6 +58,17 @@ class ReportController extends Controller
         $report->place = $request->input('district');
         $report->user_id = Auth::id();
         $report->save();
+        if(Input::hasFile('photos')){
+            $photo = Input::file('photos');
+            $extension = $photo->getClientOriginalExtension();
+            $name = time().'.'.$extension;
+            $photo->move(public_path().'\photos\\',$name);
+            $photo = new Photo();
+            $photo->route = '\photos\\'.$name;
+            error_log($name);
+            $photo->report = $report->id;
+            $photo->save();
+        }
 
 // se necesiat arreglar esto
 //        foreach ($request->file('photos') as $file)

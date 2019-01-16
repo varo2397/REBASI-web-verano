@@ -14,4 +14,8 @@ class Report extends Model
     {
         return DB::select('select * from report inner join district on place = districtID and canton = '.$cantonID);
     }
+
+    public static function getAll(){
+        return DB::select('select id,description,name,tracing,route from report inner join district on place = districtID inner join photo on photo.report = id');
+    }
 }
