@@ -78,10 +78,10 @@
 
     <div class="row">
 
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-6 offset-md-2">
             <div class="card">
                 <div class=" card-header card-header-primary" >
-                    <h2 class="card-title text-center">Inicio de sesion</h2>
+                    <h2 class="card-title text-center">Registro</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{route('register')}}" method="POST">
@@ -92,13 +92,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Correo electronico</label>
-                                            <input type="text" class="form-control" id="email" name="email">
+                                            <input type="text" class="form-control" id="email" required name="email">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Nombre completo</label>
-                                            <input type="text" class="form-control" name="name" id="name">
+                                            <input type="text" class="form-control" name="name" required id="name">
                                         </div>
                                     </div>
 
@@ -111,7 +111,7 @@
 
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Contraseña</label>
-                                            <input type="password" class="form-control" id="password" name="password">
+                                            <input type="password" class="form-control" id="password" required name="password">
                                         </div>
 
 
@@ -120,49 +120,42 @@
 
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Confirmar contraseña</label>
-                                            <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
+                                            <input type="password" class="form-control" id="password-confirm" required name="password_confirmation">
                                         </div>
 
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label >Tipo de usuario</label>
-
-                                                {{--<label class="radio-inline" for="radios-0">--}}
-                                                {{--<input type="radio" name="radios" id="radios-0" value="0" checked="checked">--}}
-                                                {{--Usuario común--}}
-                                                {{--</label> --}}
-                                                {{--<label class="radio-inline" for="radios-1">--}}
-                                                {{--<input type="radio" name="radios" id="radios-1" value="1">--}}
-                                                {{--Municipalidad--}}
-                                                {{--</label>--}}
-                                                <select class="form-control" name="role" id="role">
-                                                    <option selected="selected" value="0">Usuario común</option>
-                                                    <option value="1">Usuario municipalidad</option>
-                                                </select>
-                                            </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label >Tipo de usuario</label>
+                                            <select class="form-control" name="role" id="role">
+                                                <option selected="selected" value="0">Usuario común</option>
+                                                <option value="1">Usuario municipalidad</option>
+                                            </select>
                                         </div>
-                                        <div class="col-md-6" id="place" style="display: none;">
-                                            {{--<!-- Select Basic -->--}}
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label" for="selectbasic">Provincia</label>
+                                    </div>
+                                    <div class="col-md-8" id="place" style="display: none;">
+                                        {{--<!-- Select Basic -->--}}
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label class=" control-label" for="selectbasic">Provincia</label>
                                                 <select id="province" name="province" class="form-control">
                                                 </select>
                                             </div>
 
                                             {{--<!-- Select Basic -->--}}
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label" for="canton">Cantón</label>
+                                            <div class="form-group col-md-6">
+                                                <label class=" control-label" for="canton">Cantón</label>
                                                 <select id="canton" name="canton" class="form-control">
                                                 </select>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-primary">Registrarse</button>
                                 <a href="login" class="btn btn-primary">Iniciar sesion</a>
                                 @if ($errors->any())
@@ -173,17 +166,15 @@
                             </div>
 
 
+
                         </div>
 
                     </form>
 
-                    <div class="col-md-12 " style="text-align: center">
-                        <div class="btn-group">
-                        </div>
-                    </div>
                 </div>
             </div>
 
         </div>
     </div>
+
 @endsection
