@@ -115,8 +115,9 @@ class ReportController extends Controller
         //
         $report = Report::find($id);
         $place = DB::table('district')->where('districtID','=',$report->place)->get()[0];
+        $img = DB::table('photo')->where('report','=',$report->id)->get()[0];
         //error_log($place);
-       return view('report.show',['report' => $report,'place' => $place]);
+       return view('report.show',['report' => $report,'place' => $place,'img'=>$img]);
     }
 
     /**
