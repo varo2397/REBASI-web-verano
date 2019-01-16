@@ -20,8 +20,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/reports', 'ReportController');
 Route::resource('/records', 'RecordController');
 Route::resource('/user', 'UserController');
-Route::get('/provinces', 'ProvinceController@index');
-Route::get('/cantones/{id}', 'CantonController@show');
-Route::get('/district/{id}', 'DistrictController@show');
+Route::post('/search', 'SearchController@index');
 
 

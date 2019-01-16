@@ -113,6 +113,22 @@
         <div class="content">
             <div class="container-fluid">
                 @auth
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-4">
+                                <form action="/search" method="post">
+                                    @csrf
+                                    <div class="form-group text-center">
+                                        <input class="form-control" placeholder="Buscar denuncia" name="search" id="search" type="text">
+                                        <button class="btn btn-primary " type="submit">Buscar</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
                     @yield('content')
                 @endauth
                 @guest
