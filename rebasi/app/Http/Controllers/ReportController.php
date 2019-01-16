@@ -64,7 +64,7 @@ class ReportController extends Controller
             $name = time().'.'.$extension;
             $photo->move(public_path().'\photos\\',$name);
             $photo = new Photo();
-            $photo->route = '\photos\\'.$name;
+            $photo->route = 'photos/'.$name;
             error_log($name);
             $photo->report = $report->id;
             $photo->save();
