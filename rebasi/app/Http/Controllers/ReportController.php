@@ -7,6 +7,7 @@ use App\Report;
 use App\Photo;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class ReportController extends Controller
 {
@@ -99,6 +100,10 @@ class ReportController extends Controller
     public function edit($id)
     {
         //
+        $report = Report::find($id);
+        $place = DB::table('district')->where('districtID','=',$report->place)->get()[0];
+        //error_log($place);
+       return view('report.show',['report' => $report,'place' => $place]);
     }
 
     /**
@@ -111,6 +116,12 @@ class ReportController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        error_log("Se va a actualizar la denuncia con el id: ".$id);
+        $report = Report::find($id);
+        $report->tracing = $data['tracing'];
+        $report->save();
+        return redirect('/reports');
     }
 
     /**

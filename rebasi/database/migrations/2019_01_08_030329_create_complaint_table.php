@@ -22,6 +22,7 @@ class CreateComplaintTable extends Migration
             $table->text('place');
 //            $table->unsignedInteger('place');
 //            $table->foreign('place')->references('districtID')->on('district');
+            $table->text('tracing');
         });
     }
 

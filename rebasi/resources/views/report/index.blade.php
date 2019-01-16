@@ -7,18 +7,19 @@
         <div class="row">
             @foreach($reports as $report)
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>
-                                {{ $report->description }}
-                            </h3>
-                            <h4>
-                                {{ $report->place }}
-                            </h4>
-                            {{--<a href="{{  }}"></a>--}}
+                    <a href="reports/{{$report->id}}/edit">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>
+                                    {{ $report->description }}
+                                </h3>
+                                <h4>
+                                    {{ $report->place }}
+                                </h4>
+                                {{--<a href="{{  }}"></a>--}}
+                            </div>
                         </div>
-
-                    </div>
+                    </a>
                 </div>
 
             @endforeach
