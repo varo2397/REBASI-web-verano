@@ -145,21 +145,21 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        {{--<div class="col-md-6" id="place" style="display: none;">--}}
+                                        <div class="col-md-6" id="place" style="display: none;">
                                             {{--<!-- Select Basic -->--}}
-                                            {{--<div class="form-group">--}}
-                                                {{--<label class="col-md-4 control-label" for="selectbasic">Provincia</label>--}}
-                                                {{--<select id="province" name="province" class="form-control">--}}
-                                                {{--</select>--}}
-                                            {{--</div>--}}
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label" for="selectbasic">Provincia</label>
+                                                <select id="province" name="province" class="form-control">
+                                                </select>
+                                            </div>
 
                                             {{--<!-- Select Basic -->--}}
-                                            {{--<div class="form-group">--}}
-                                                {{--<label class="col-md-4 control-label" for="canton">Cantón</label>--}}
-                                                {{--<select id="canton" name="canton" class="form-control">--}}
-                                                {{--</select>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label" for="canton">Cantón</label>
+                                                <select id="canton" name="canton" class="form-control">
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

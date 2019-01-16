@@ -16,8 +16,15 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <lable>Lugar</lable>
-                                        <input class="form-control" required name="place">
+                                        <label for="selectbasic">Provincia</label>
+                                        <select id="province" name="province" class="form-control">
+                                        </select>
+                                        <label for="selectbasic">Cantón</label>
+                                        <select id="canton" name="canton" class="form-control">
+                                        </select>
+                                        <label for="selectbasic">Distrito</label>
+                                        <select id="district" name="district" class="form-control">
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -28,7 +35,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="">
-                                        <lable>Lugar</lable>
+                                        <lable>Foto</lable>
                                         <input accept="image/*" type="file" name="photos" required multiple class="form-control">
                                     </div>
                                 </div>

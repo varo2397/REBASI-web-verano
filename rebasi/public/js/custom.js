@@ -1,5 +1,5 @@
 $(function(){
-	$.getJSON("js/directions.json", function(json){
+	$.getJSON("http://localhost:8000/js/directions.json", function(json){
 		//console.log(json[1][0]['cantones']);
 		$.each(json, function(key,value){
 			//console.log('<option value="'+i+'">'+item+'</option>');
@@ -12,13 +12,22 @@ $(function(){
 			//console.log(item);
 			$('#canton').append('<option value="'+i+'">'+item['canton']+'</option>');
 		});
+
+		$.each(json[1]['cantones'][1]['districts'], function(i,item){
+			//console.log('<option value="'+i+'">'+item+'</option>');
+			//console.log(item);
+			$('#district').append('<option value="'+i+'">'+item+'</option>');
+		});
 	});
 });
 
 
-$('#radios-1').click(function() {
-   if($('#radios-1').is(':checked')) {
+$('#role').change(function() {
+	var role = $('#role').val();
+   if(role == 1) {
     $('#place').show('slow');
+   }else{
+   	$('#place').hide(1500);
    }
 });
 
@@ -31,7 +40,7 @@ $('#radios-0').click(function() {
 $('#province').change(function(){
 	var provinceID = $('#province').val();
 	$('#canton').empty();
-	$.getJSON("js/directions.json", function(json){
+	$.getJSON("http://localhost:8000/js/directions.json", function(json){
 		//console.log(json[1][0]['cantones']);
 		$.each(json[provinceID]['cantones'], function(i,item){
 			//console.log('<option value="'+i+'">'+item+'</option>');
@@ -40,3 +49,16 @@ $('#province').change(function(){
 	});
 });
 
+$('#canton').change(function(){
+	var cantonID = $('#canton').val();
+	var provinceID = $('#province').val();
+	$('#district').empty();
+	$.getJSON("http://localhost:8000/js/directions.json", function(json){
+		//console.log(json[1][0]['cantones']);
+		$.each(json[provinceID]['cantones'][cantonID]['districts'], function(i,item){
+			//console.log(json[provinceID][cantonID]);
+			//console.log('<option value="'+i+'">'+item+'</option>');
+			$('#district').append('<option value="'+i+'">'+item+'</option>');
+		});
+	});
+});

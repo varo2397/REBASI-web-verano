@@ -46,7 +46,7 @@ class ReportController extends Controller
 
         $report = new Report();
         $report->description = $request->input('description');
-        $report->place = $request->input('place');
+        $report->place = $request->input('district');
         $report->user_id = Auth::id();
         $report->save();
 
