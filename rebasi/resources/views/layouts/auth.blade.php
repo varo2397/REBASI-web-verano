@@ -21,7 +21,7 @@
     <div class="wrapper">
         <div class="main-panel">
             <div class="content">
-                <div class="content-fluid">
+                <div class="container-fluid">
                     @yield('content')
                 </div>
             </div>

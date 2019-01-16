@@ -20,5 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/reports', 'ReportController');
 Route::resource('/records', 'RecordController');
 Route::resource('/user', 'UserController');
-Route::post('/userLogin','UserController@login');
-Route::get('/userLogout','UserController@logout');
+Route::get('/provinces', 'ProvinceController@index');
+Route::get('/cantones/{id}', 'CantonController@show');
+Route::get('/district/{id}', 'DistrictController@show');
+
+

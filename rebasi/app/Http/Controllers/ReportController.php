@@ -70,9 +70,6 @@ class ReportController extends Controller
 //            $photo->save();
 //        }
 
-
-
-
         return $this->index();
 
     }

@@ -74,7 +74,7 @@
 
     <div class="row">
 
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-6 offset-md-2">
             <div class="card">
                 <div class=" card-header card-header-primary" >
                     <h2 class="card-title text-center">Inicio de sesion</h2>
