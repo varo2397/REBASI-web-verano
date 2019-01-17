@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Report;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class RecordController extends Controller
@@ -17,8 +18,11 @@ class RecordController extends Controller
     {
         //
         $userId = Auth::id();
-        $userReports = Report::all()->where('user_id', $userId);
-
+        if(Auth::user()->role == 0){
+            $userReports = Report::all()->where('user_id', $userId);
+        }else{
+            $userReports = Report::reportsPerCanton(User::hallOf(Auth::id()));
+        }
 
         return view('record.index', ['userReports' => $userReports]);
     }

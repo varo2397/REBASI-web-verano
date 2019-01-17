@@ -12,6 +12,6 @@ class SearchController extends Controller
         $description = $request->input('search');
         $searchReports = Report::all()->where('description', 'LIKE', $description);
 
-        return view('search.index', ['$searchReports', $searchReports]);
+        return view('search.index', ['searchReports' => $searchReports]);
     }
 }

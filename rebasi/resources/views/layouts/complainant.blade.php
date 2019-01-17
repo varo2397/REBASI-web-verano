@@ -42,13 +42,21 @@
                 <li class="nav-item {{ Request::segment(1) === 'user' ? 'active' : null }}">
                     <a class="nav-link" href="user/{{ Auth::user()->id }}">
                         <i class="material-icons">person</i>
+                        @if(Auth::user()->role == 0)
                         <p>Información personal</p>
+                        @else
+                        <p>Municipalidad</p>
+                        @endif
                     </a>
                 </li>
                 <li class="nav-item {{ Request::segment(1) === 'records' ? 'active' : null }} ">
                     <a class="nav-link" href="{{ URL::to('records') }}">
                         <i class="material-icons">content_paste</i>
+                        @if(Auth::user()->role == 0)
                         <p>Historial de denuncias</p>
+                        @else
+                        <p>Denuncias Locales</p>
+                        @endif
                     </a>
                 </li>
 

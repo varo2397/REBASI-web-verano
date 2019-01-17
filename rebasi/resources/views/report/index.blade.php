@@ -9,7 +9,7 @@
                 <div class="col-md-4">
                     <a href="reports/{{$report->id}}/edit">
                         <div class="card">
-                            <img src="{{asset($report->route)}}" alt="">
+                            <img src="{{asset($report->route)}}" width="319" height="200">
                             <div class="card-body">
                                 <h3>
                                     {{ $report->description }}

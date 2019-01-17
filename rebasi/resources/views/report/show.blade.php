@@ -8,8 +8,9 @@
                 </h2>
             </div>
             <div class="card-body">
-            	<img src="{{asset($img->route)}}" alt="">
+            	<img src="{{asset($img->route)}}" width="319" height="200">
                 <p> Descripción: {{$report->description}}</p>
+                <p> Dirección: {{$report->address}}</p>
                 <p> Dado en: {{$place->name}}</p>
                 @if(Auth::user()->role == 1)
                 <form action="/reports/{{$report->id}}" method="POST">
@@ -17,7 +18,7 @@
                 	@method('PATCH')
                 	<label for="tracing">Seguimiento de la denuncia</label>
                 	<div class="form-group">
-                		<textarea name="tracing" id="tracing" cols="30" rows="10" class="form-control rounded-0"></textarea>
+                		<textarea name="tracing" id="tracing" cols="30" rows="10" class="form-control rounded-0">{{$report->tracing}}</textarea>
                 	</div>
                 	<button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>

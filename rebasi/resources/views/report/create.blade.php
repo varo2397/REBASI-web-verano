@@ -32,6 +32,10 @@
                                         <lable>Descripción</lable>
                                         <textarea class="form-control" required name="description"></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <lable>Dirección</lable>
+                                        <textarea class="form-control" required name="address"></textarea>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="">

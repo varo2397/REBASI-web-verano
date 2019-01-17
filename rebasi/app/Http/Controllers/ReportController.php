@@ -55,8 +55,10 @@ class ReportController extends Controller
 
         $report = new Report();
         $report->description = $request->input('description');
+        $report->address = $request->input('address');
         $report->place = $request->input('district');
         $report->user_id = Auth::id();
+        $report->tracing = "Iniciada";
         $report->save();
         if(Input::hasFile('photos')){
             $photo = Input::file('photos');

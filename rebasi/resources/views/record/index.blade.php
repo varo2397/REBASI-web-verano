@@ -15,23 +15,47 @@
                   <thead class=" text-primary">
                   <th>ID</th>
                   <th>Descripción</th>
-                  <th>Lugar</th>
+                  <th>Dirección</th>
+                  @if(Auth::user()->role != 0)
+                  <th>Distrito</th>
+                  @endif
+                  <th>Seguimiento</th>
                   <th>Fecha</th>
                   </thead>
                   <tbody>
                   @foreach($userReports as $report)
                     <tr>
                       <td>
+                        <a href="reports/{{$report->id}}/edit">
                         {{ $report->id }}
+                        </a>
                       </td>
                       <td>
+                        <a href="reports/{{$report->id}}/edit">
                         {{ $report->description }}
+                        </a>
                       </td>
                       <td>
-                        {{ $report->place }}
+                        <a href="reports/{{$report->id}}/edit">
+                        {{ $report->address }}
+                        </a>
+                      </td>
+                      @if(Auth::user()->role != 0)
+                      <td>
+                        <a href="reports/{{$report->id}}/edit">
+                        {{ $report->name }}
+                        </a>
+                      </td>
+                      @endif
+                      <td>
+                        <a href="reports/{{$report->id}}/edit">
+                        {{ $report->tracing }}
+                        </a>
                       </td>
                       <td>
+                        <a href="reports/{{$report->id}}/edit">
                         {{ $report->created_at }}
+                        </a>
                       </td>
                     </tr>
                   @endforeach
